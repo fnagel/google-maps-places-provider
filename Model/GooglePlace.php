@@ -70,6 +70,11 @@ final class GooglePlace extends Address
     private $rating;
 
     /**
+     * @var int|null
+     */
+    private $userRatingsTotal;
+
+    /**
      * @var string|null
      */
     private $formattedPhoneNumber;
@@ -285,6 +290,22 @@ final class GooglePlace extends Address
     {
         $new = clone $this;
         $new->rating = $rating;
+
+        return $new;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getUserRatingsTotal()
+    {
+        return $this->userRatingsTotal;
+    }
+
+    public function withUserRatingsTotal(int $userRatingsTotal = null)
+    {
+        $new = clone $this;
+        $new->userRatingsTotal = $userRatingsTotal;
 
         return $new;
     }

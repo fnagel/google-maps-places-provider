@@ -382,6 +382,10 @@ final class GoogleMapsPlaces extends AbstractHttpProvider implements Provider
                 $address = $address->withRating((float) $result->rating);
             }
 
+            if (isset($result->user_ratings_total)) {
+                $address = $address->withUserRatingsTotal((int) $result->user_ratings_total);
+            }
+
             if (isset($result->formatted_phone_number)) {
                 $address = $address->withFormattedPhoneNumber($result->formatted_phone_number);
             }
